@@ -5,11 +5,11 @@ export const site = {
 
   // Адрес сайта без слеша в конце — от него строятся canonical-ссылки и sitemap.xml.
   // С GitHub Pages без своего домена: 'https://danila2287.github.io/arbeiten'
-  url: 'https://example.ru',
+  url: 'https://danila2287.github.io/arbeiten',
 
   // Папка, в которой сайт открывается. Со своим доменом — '/'.
   // С GitHub Pages без своего домена — '/arbeiten/' (название репозитория).
-  base: '/',
+  base: '/arbeiten/',
 
   metrikaId: '', // номер счётчика Яндекс.Метрики, например '98765432'
 
