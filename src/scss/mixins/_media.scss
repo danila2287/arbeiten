@@ -1,0 +1,25 @@
+// Брейкпоинты. Использование: @include tablet { … }
+
+@mixin laptop {
+  @media (width <= 1080px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (width <= 860px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (width <= 640px) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

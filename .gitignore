@@ -1,17 +1,22 @@
 node_modules
 dist
-.DS_Store
 *.log
 .env
 .env.local
+.DS_Store
 
-# Генерируются из src/ скриптом scripts/generate.mjs
-/index.html
-/404.html
-/catalog/
-/item/
-/cart/
-/delivery/
-/contacts/
-/public/sitemap.xml
-/public/robots.txt
+# Редактор
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Генерируются из src/data, src/html и src/templates скриптом scripts/generate.mjs
+/src/index.html
+/src/404.html
+/src/catalog/
+/src/item/
+/src/cart/
+/src/delivery/
+/src/contacts/
+/src/assets/sitemap.xml
+/src/assets/robots.txt

@@ -1,0 +1,46 @@
+@use '../../mixins' as *;
+
+// Шаги аренды — настоящая последовательность, поэтому с номерами
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: step;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  &__item {
+    padding-top: 18px;
+    counter-increment: step;
+    border-top: 2px solid var(--sun);
+
+    &::before {
+      display: block;
+      margin-bottom: 10px;
+      font: 700 40px var(--display);
+      color: var(--sun);
+      content: counter(step);
+    }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      color: rgb(255 255 255 / 82%);
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: #fff;
+  }
+}

@@ -1,0 +1,21 @@
+// Цвета, шрифты и размеры. Меняйте здесь — поменяется на всём сайте.
+
+:root {
+  --bg: #eef1ec;
+  --paper: #fff;
+  --ink: #18201d;
+  --green: #1f3b32;
+  --green-2: #2d5245;
+  --sun: #f2c230;
+  --muted: #5e6964;
+  --line: #d3d9d3;
+  --warn: #8a5a00;
+  --warn-bg: #fbefc8;
+  --error: #a3261b;
+  --display: 'Unbounded', 'Arial Black', sans-serif;
+  --text: 'Manrope', system-ui, sans-serif;
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 10px;
+  --header-offset: 92px;
+}

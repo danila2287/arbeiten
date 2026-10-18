@@ -1,15 +1,36 @@
 {
   "name": "arbeiten",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Сайт аренды мебели для небольших мероприятий в Москве",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pages": "node scripts/generate.mjs",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"src/scss/**/*.scss\"",
+    "lint:fix": "eslint . --fix && stylelint \"src/scss/**/*.scss\" --fix",
+    "format": "prettier . --write"
   },
   "devDependencies": {
-    "vite": "^5.4.0"
+    "@eslint/js": "^9.28.0",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.1",
+    "sharp": "^0.34.2",
+    "stylelint": "^16.20.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "svgo": "^3.3.2",
+    "vite": "^6.3.5",
+    "vite-plugin-image-optimizer": "^1.1.8"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

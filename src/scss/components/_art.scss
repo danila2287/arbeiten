@@ -1,0 +1,44 @@
+// Иллюстрации товаров и цветные подложки под них
+.art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  padding: 10%;
+  object-fit: cover;
+
+  &--paper {
+    color: var(--green);
+    background: #f6f8f5;
+  }
+
+  &--sun {
+    color: #5a4100;
+    background: #f8e3a0;
+  }
+
+  &--wood {
+    color: #5e4026;
+    background: #e8d6bd;
+  }
+
+  &--sage {
+    color: var(--green);
+    background: #cbd8ce;
+  }
+
+  &--sky {
+    color: #23485a;
+    background: #d7e5ec;
+  }
+
+  &--ink {
+    color: var(--sun);
+    background: var(--green);
+  }
+
+  // Настоящее фото товара
+  &--photo {
+    padding: 0;
+    background: #f6f8f5;
+  }
+}

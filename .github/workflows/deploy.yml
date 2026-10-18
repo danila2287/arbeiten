@@ -1,0 +1,55 @@
+# Сборка и публикация сайта на GitHub Pages при каждом push в main.
+# Включите один раз: Settings → Pages → Build and deployment → Source: GitHub Actions.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install dependencies
+        # npm ci — если package-lock.json закоммичен (так надёжнее), иначе npm install
+        run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true # замечания линтеров видны в логе, но не мешают публикации
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

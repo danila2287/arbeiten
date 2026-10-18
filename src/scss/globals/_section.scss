@@ -1,0 +1,48 @@
+.section {
+  padding: clamp(40px, 6vw, 80px) 0;
+
+  &--tight {
+    padding-top: 28px;
+  }
+
+  &--dark {
+    color: #fff;
+    background: var(--green);
+
+    .section__title {
+      color: #fff;
+    }
+  }
+
+  &__head {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+
+    .section__title {
+      margin: 0;
+    }
+  }
+}
+
+.page-title {
+  margin-bottom: 24px;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--green);
+}
+
+// Вводный текст под заголовком категории
+.intro {
+  max-width: 68ch;
+  margin: -8px 0 32px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.note {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}

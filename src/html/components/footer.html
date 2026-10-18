@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <p class="footer__brand">{{siteName}}</p>
+      <p>{{tagline}}. {{city}} и область.</p>
+    </div>
+
+    <div>
+      <p class="footer__head">Каталог</p>
+      <ul class="footer__list">
+        {{{footerCategories}}}
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer__head">Связаться</p>
+      <ul class="footer__list">
+        <li><a href="tel:{{phoneRaw}}">{{phone}}</a></li>
+        <li><a href="https://wa.me/{{whatsapp}}" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://t.me/{{telegram}}" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href="{{avito}}" target="_blank" rel="noopener">Мы на Авито</a></li>
+        <li>{{hours}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__small">
+    © {{year}} {{siteName}}. Цены на сайте не являются публичной офертой.
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>

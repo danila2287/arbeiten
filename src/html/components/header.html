@@ -1,0 +1,23 @@
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="{{link /}}" aria-label="{{siteName}}, на главную">
+      <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" />
+        <path d="M22 14v36M42 14v36M22 20h20M22 28h20M18 34h28" />
+      </svg>
+      <span>{{siteName}}</span>
+    </a>
+
+    <nav class="nav" aria-label="Основное меню">
+      <a class="nav__link" href="{{link /catalog/}}"{{current /catalog/}}>Каталог</a>
+      <a class="nav__link" href="{{link /delivery/}}"{{current /delivery/}}>Доставка и цены</a>
+      <a class="nav__link" href="{{link /contacts/}}"{{current /contacts/}}>Контакты</a>
+    </nav>
+
+    <a class="header__phone" href="tel:{{phoneRaw}}">{{phone}}</a>
+    <a class="cart-link" href="{{link /cart/}}"{{current /cart/}}>
+      Заявка<b class="cart-link__count" data-cart-count hidden></b>
+    </a>
+  </div>
+</header>

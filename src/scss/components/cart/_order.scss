@@ -1,0 +1,168 @@
+@use '../../mixins' as *;
+
+// Страница заявки: список слева, форма справа
+.order {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 40px;
+  align-items: start;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+  }
+
+  &__lines {
+    padding: 0;
+    margin: 0 0 20px;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto 100px auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+
+  &__img .art {
+    border-radius: 8px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  &__meta {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  &__sum {
+    font-weight: 700;
+    text-align: right;
+  }
+
+  &__remove {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+
+  @include mobile {
+    grid-template-areas:
+      'img info info'
+      'img step sum'
+      'img rm rm';
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    row-gap: 8px;
+
+    &__img {
+      grid-area: img;
+      align-self: start;
+    }
+
+    &__info {
+      grid-area: info;
+    }
+
+    .stepper {
+      grid-area: step;
+      justify-self: start;
+    }
+
+    &__sum {
+      grid-area: sum;
+    }
+
+    &__remove {
+      grid-area: rm;
+      justify-self: start;
+    }
+  }
+}
+
+.checkout {
+  position: sticky;
+  top: var(--header-offset);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background: var(--paper);
+  border-radius: var(--radius);
+
+  @include laptop {
+    position: static;
+  }
+
+  @include mobile {
+    padding: 18px;
+  }
+
+  &__sum {
+    padding-bottom: 16px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  &__row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+
+    &--total {
+      font-size: 18px;
+
+      strong {
+        font: 700 26px var(--display);
+        color: var(--green);
+      }
+    }
+  }
+
+  &__days {
+    width: 90px;
+    min-height: 40px;
+    padding: 6px 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  &__warn {
+    padding: 10px 12px;
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: var(--warn);
+    background: var(--warn-bg);
+    border-radius: 8px;
+  }
+
+  &__error {
+    margin: 0;
+    font-size: 15px;
+    color: var(--error);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .link {
+    align-self: center;
+  }
+}

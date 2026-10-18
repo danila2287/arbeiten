@@ -1,0 +1,82 @@
+@use '../mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px 24px;
+
+  &--catalog {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include laptop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    &--catalog {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 14px;
+
+    &--catalog {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+.pcard {
+  display: flex;
+  flex-direction: column;
+
+  &__img .art {
+    margin-bottom: 14px;
+    border-radius: var(--radius);
+  }
+
+  &__name {
+    margin-bottom: 6px;
+    font: 700 17px/1.3 var(--text);
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @include mobile {
+      font-size: 15px;
+    }
+  }
+
+  &__price {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__unit {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  &__stock {
+    margin: 2px 0 14px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  &__btn {
+    align-self: flex-start;
+    margin-top: auto;
+
+    @include mobile {
+      align-self: stretch;
+    }
+  }
+}

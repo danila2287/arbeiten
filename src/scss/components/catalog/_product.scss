@@ -1,0 +1,47 @@
+@use '../../mixins' as *;
+
+// Страница товара
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  &__img .art {
+    border-radius: var(--radius);
+  }
+
+  &__info {
+    max-width: 560px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__price {
+    font: 700 30px var(--display);
+    color: var(--green);
+  }
+
+  &__unit {
+    font: 400 16px var(--text);
+    color: var(--muted);
+  }
+}
+
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+
+  &__sum {
+    margin-top: 12px;
+    color: var(--muted);
+  }
+}

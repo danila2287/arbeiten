@@ -1,0 +1,57 @@
+@use '../../mixins' as *;
+
+.hero {
+  padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    max-width: 12ch;
+    margin-bottom: 28px;
+    font-size: clamp(38px, 6.4vw, 82px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--green);
+  }
+
+  &__lead {
+    max-width: 56ch;
+    font-size: clamp(17px, 1.6vw, 20px);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0 40px;
+  }
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+  padding-top: 22px;
+  margin: 0;
+  border-top: 1px solid var(--line);
+
+  dt {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  dd {
+    margin: 2px 0 0;
+    font-size: 19px;
+    font-weight: 700;
+  }
+}

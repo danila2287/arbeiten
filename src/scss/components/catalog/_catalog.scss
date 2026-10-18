@@ -1,0 +1,85 @@
+@use '../../mixins' as *;
+
+.catalog {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  &__main {
+    min-width: 0;
+  }
+}
+
+// Список разделов слева (на телефоне — горизонтальная лента)
+.filters {
+  position: sticky;
+  top: var(--header-offset);
+  min-width: 0;
+
+  @include tablet {
+    position: static;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include tablet {
+      display: flex;
+      gap: 6px;
+      padding-bottom: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    padding: 9px 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+
+    &:hover {
+      background: var(--paper);
+    }
+
+    &[aria-current] {
+      color: #fff;
+      background: var(--green);
+    }
+
+    @include tablet {
+      white-space: nowrap;
+      background: var(--paper);
+    }
+  }
+
+  &__count {
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  &__link[aria-current] &__count {
+    color: rgb(255 255 255 / 70%);
+  }
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}

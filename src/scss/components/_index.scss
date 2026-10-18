@@ -1,0 +1,28 @@
+// Общие блоки
+@use 'header';
+@use 'footer';
+@use 'toast';
+@use 'art';
+@use 'crumbs';
+@use 'product-card';
+@use 'stepper';
+@use 'specs';
+@use 'empty';
+
+// Главная
+@use 'home/hero';
+@use 'home/slip';
+@use 'home/cats';
+@use 'home/steps';
+@use 'home/faq';
+@use 'home/avito';
+
+// Каталог и товар
+@use 'catalog/catalog';
+@use 'catalog/product';
+
+// Заявка
+@use 'cart/order';
+
+// Текстовые страницы
+@use 'prose';

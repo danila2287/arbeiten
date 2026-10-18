@@ -1,0 +1,14 @@
+dist
+node_modules
+package-lock.json
+
+# Сгенерированные страницы
+src/index.html
+src/404.html
+src/catalog
+src/item
+src/cart
+src/delivery
+src/contacts
+src/assets/sitemap.xml
+src/assets/robots.txt

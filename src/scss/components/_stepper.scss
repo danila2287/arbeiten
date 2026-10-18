@@ -1,0 +1,37 @@
+// Счётчик количества: − [ 3 ] +
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+
+  &__btn {
+    width: 42px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    border-radius: 999px;
+
+    &:hover {
+      background: var(--bg);
+    }
+  }
+
+  &__input {
+    width: 52px;
+    font-weight: 700;
+    text-align: center;
+    appearance: textfield;
+    background: none;
+    border: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+  }
+}

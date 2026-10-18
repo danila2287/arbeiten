@@ -1,0 +1,53 @@
+@use '../../mixins' as *;
+
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 24px 48px;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  &__list {
+    border-top: 1px solid var(--line);
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  &__question {
+    position: relative;
+    padding: 18px 40px 18px 0;
+    font-size: 18px;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      top: 12px;
+      right: 4px;
+      font: 500 26px var(--display);
+      color: var(--green);
+      content: '+';
+      transition: transform 0.2s;
+    }
+  }
+
+  &__item[open] &__question::after {
+    transform: rotate(45deg);
+  }
+
+  &__answer {
+    max-width: 64ch;
+    margin: 0 0 20px;
+    color: var(--muted);
+  }
+}

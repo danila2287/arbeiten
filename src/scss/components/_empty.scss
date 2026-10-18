@@ -1,0 +1,18 @@
+// Пустая заявка, ничего не найдено, 404
+.empty {
+  grid-column: 1 / -1;
+  padding: 40px 0;
+  color: var(--muted);
+}
+
+.empty-page {
+  max-width: 640px;
+  color: var(--muted);
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+}

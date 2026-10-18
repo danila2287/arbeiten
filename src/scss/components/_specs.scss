@@ -1,0 +1,28 @@
+// Список «характеристика — значение»
+.specs {
+  padding: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--line);
+
+  &__row {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  dt {
+    color: var(--muted);
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  &--big dd {
+    font-size: 18px;
+  }
+}
