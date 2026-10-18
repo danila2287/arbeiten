@@ -101,7 +101,7 @@ export function home(ctx) {
       ${categories
         .map(
           (c) => `<li><a class="cat" href="${link(catPath(c))}">
-        ${art(c.art[0], c.art[1])}
+        ${c.cover ? `<img class="art art--photo" src="${link(c.cover)}" alt="" width="400" height="240" loading="lazy">` : art(c.art[0], c.art[1])}
         <span class="cat__name">${esc(c.name)}</span>
         <span class="cat__note">${esc(c.note)}</span>
       </a></li>`,
