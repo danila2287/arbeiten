@@ -2,7 +2,7 @@
 import { productById } from '../../data/catalog.js';
 import { site } from '../../data/config.js';
 
-const KEY = 'sborka-cart-v1';
+const KEY = 'nemnogo-mebeli-cart-v1';
 const listeners = new Set();
 
 function load() {

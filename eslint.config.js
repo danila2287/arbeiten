@@ -4,7 +4,7 @@ import prettier from 'eslint-config-prettier';
 
 export default [
   {
-    // Сгенерированные страницы и сборка — не проверяем
+    // Сгенерированные страницы и Немного Мебели — не проверяем
     ignores: ['dist/', 'node_modules/', 'src/**/*.html'],
   },
 
