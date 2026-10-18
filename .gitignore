@@ -4,3 +4,14 @@ dist
 *.log
 .env
 .env.local
+
+# Генерируются из src/ скриптом scripts/generate.mjs
+/index.html
+/404.html
+/catalog/
+/item/
+/cart/
+/delivery/
+/contacts/
+/public/sitemap.xml
+/public/robots.txt

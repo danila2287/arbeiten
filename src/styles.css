@@ -179,6 +179,7 @@ img.art { padding: 0; }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--muted); margin-bottom: 14px; }
 .crumbs a { color: var(--muted); }
 .catalog { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; align-items: start; }
+.catalog > * { min-width: 0; }
 .filters { position: sticky; top: 92px; }
 .filters__cats { list-style: none; margin: 0; padding: 0; }
 .filters__cats a { display: flex; justify-content: space-between; padding: 9px 12px; border-radius: 8px; text-decoration: none; font-weight: 500; }
@@ -256,6 +257,21 @@ img.art { padding: 0; }
 .table th, .table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .table th { font-weight: 500; width: 38%; color: var(--muted); }
 
+/* Вводный текст категории */
+.intro { max-width: 68ch; color: var(--muted); margin: -8px 0 32px; font-size: 17px; }
+.slip__lines a { text-decoration: none; }
+.slip__lines a:hover { text-decoration: underline; }
+
+/* Частые вопросы */
+.faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px 48px; align-items: start; }
+.faq__list { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 40px 18px 0; font-weight: 700; font-size: 18px; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; position: absolute; right: 4px; top: 12px; font: 500 26px var(--display); color: var(--green); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 0 0 20px; max-width: 64ch; color: var(--muted); }
+
 /* Подвал */
 .footer { background: var(--ink); color: rgba(255,255,255,.8); padding: 56px 0 28px; margin-top: 40px; font-size: 15px; }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
@@ -286,11 +302,12 @@ img.art { padding: 0; }
   .hero__grid, .product { grid-template-columns: 1fr; }
   .cats { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .catalog { grid-template-columns: 1fr; gap: 20px; }
+  .catalog { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .filters { position: static; }
   .filters__cats { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .filters__cats a { white-space: nowrap; background: var(--paper); gap: 8px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .faq { grid-template-columns: 1fr; }
   .footer__grid > :first-child { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
