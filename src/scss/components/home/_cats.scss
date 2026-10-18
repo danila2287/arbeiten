@@ -35,12 +35,11 @@
     border-radius: 6px;
   }
 
-  // Фото раздела — во всю ширину плитки, без обрезки
+  // Фото раздела — во всю ширину плитки, без отступов
   .art--photo {
     height: 150px;
-    padding: 6px;
-    object-fit: contain;
-    object-position: center;
+    padding: 0;
+    object-fit: cover;
   }
 
   &__name {
