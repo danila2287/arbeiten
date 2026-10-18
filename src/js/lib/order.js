@@ -2,7 +2,7 @@ import { site } from '../../data/config.js';
 import { totals } from './cart.js';
 import { rub } from './format.js';
 
-// Текст заявки — уходит в WhatsApp / Telegram или копируется.
+// Текст заявки — уходит в Telegram или копируется.
 export function orderText(lines, days, form) {
   const t = totals(lines, days);
   const rows = lines.map((l) => `• ${l.product.name} — ${l.qty} шт. × ${rub(l.product.price)}`);
@@ -28,9 +28,6 @@ export function orderText(lines, days, form) {
     .trim();
 }
 
-export const whatsappLink = (text) =>
-  `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
-
 // Telegram не умеет подставлять текст в личный чат, поэтому только ссылка на чат.
 export const telegramLink = () => `https://t.me/${site.telegram}`;
 
@@ -38,7 +35,7 @@ export const telegramLink = () => `https://t.me/${site.telegram}`;
 // Токен бота нельзя хранить во фронтенде — нужен небольшой серверный обработчик
 // (например, функция на Vercel/Netlify или Яндекс Cloud Functions), который
 // принимает JSON и пересылает его в бота. Пока ORDER_ENDPOINT пустой, функция
-// ничего не отправляет и сайт использует WhatsApp/Telegram-ссылки.
+// ничего не отправляет и сайт использует Telegram-ссылку.
 export const ORDER_ENDPOINT = '';
 
 export async function sendOrder(payload) {

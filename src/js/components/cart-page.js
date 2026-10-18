@@ -3,7 +3,7 @@ import { site, link } from '../../data/config.js';
 import { productImage } from '../shared/art.js';
 import { cart, totals, dayFactor } from '../lib/cart.js';
 import { esc, rub, pieces } from '../lib/format.js';
-import { orderText, whatsappLink, telegramLink, sendOrder } from '../lib/order.js';
+import { orderText, telegramLink, sendOrder } from '../lib/order.js';
 import { stepperHtml, bindSteppers } from './stepper.js';
 import { toast } from './toast.js';
 
@@ -69,8 +69,7 @@ function orderHtml(lines, days, form) {
         <label class="field"><span>Комментарий</span><textarea name="comment" rows="3" placeholder="Этаж, лифт, время доставки, нужна ли расстановка">${esc(form.comment)}</textarea></label>
 
         <p class="checkout__error" data-error role="alert"></p>
-        <button class="btn btn--wide" type="submit" data-via="whatsapp">Отправить в WhatsApp</button>
-        <button class="btn btn--ghost btn--wide" type="submit" data-via="telegram">Отправить в Telegram</button>
+        <button class="btn btn--wide" type="submit" data-via="telegram">Отправить в Telegram</button>
         <button class="link" type="submit" data-via="copy">Скопировать текст заявки</button>
       </form>
     </div>`;
@@ -115,14 +114,9 @@ export function useCartPage() {
       else window.prompt('Скопируйте текст заявки:', text);
       return;
     }
-    if (via === 'telegram') {
-      await copy(text);
-      window.open(telegramLink(), '_blank', 'noopener');
-      toast('Текст заявки скопирован — вставьте его в чат Telegram');
-      return;
-    }
-    window.open(whatsappLink(text), '_blank', 'noopener');
-    toast('Заявка открыта в WhatsApp — нажмите «Отправить»');
+    await copy(text);
+    window.open(telegramLink(), '_blank', 'noopener');
+    toast('Текст заявки скопирован — вставьте его в чат Telegram');
   }
 
   function render() {

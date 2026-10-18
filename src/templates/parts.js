@@ -16,7 +16,6 @@ export function commonVars(ctx) {
     city: site.city,
     phone: site.phone,
     phoneRaw: site.phoneRaw,
-    whatsapp: site.whatsapp,
     telegram: site.telegram,
     email: site.email,
     avito: site.avito,

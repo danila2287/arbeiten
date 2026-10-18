@@ -74,7 +74,7 @@ export function home(ctx) {
       <p class="hero__lead">Сдаём в аренду стулья, столы, шатры, текстиль и декор для небольших мероприятий в Москве: дни рождения, домашние свадьбы, ужины, фотосессии, вечеринки во дворе. Привезём, расставим и заберём.</p>
       <div class="hero__actions">
         <a class="btn" href="${link('/catalog/')}">Открыть каталог</a>
-        <a class="btn btn--ghost" href="https://wa.me/${site.whatsapp}" target="_blank" rel="noopener">Спросить в WhatsApp</a>
+        <a class="btn btn--ghost" href="https://t.me/Danykik" target="_blank" rel="noopener">Спросить в Telegram</a>
       </div>
       <dl class="facts">
         <div class="facts__item"><dt>Заказ</dt><dd>от ${rub(site.minOrder)}</dd></div>
@@ -367,7 +367,7 @@ export function cart(ctx) {
 <section class="section section--tight">
   <div class="container" data-cart-root>
     <h1 class="page-title">Заявка</h1>
-    <noscript><p>Для оформления заявки включите JavaScript или напишите нам в WhatsApp: <a href="https://wa.me/${ctx.site.whatsapp}">wa.me/${ctx.site.whatsapp}</a></p></noscript>
+    <noscript><p>Для оформления заявки включите JavaScript или напишите нам в Telegram: <a href="https://t.me/${ctx.site.telegram}">t.me/${ctx.site.telegram}</a></p></noscript>
   </div>
 </section>`;
   return {
@@ -404,7 +404,7 @@ export function contacts(ctx) {
     html: layout(ctx, {
       path: '/contacts/',
       title: `Контакты | ${site.name}`,
-      description: `Телефон, WhatsApp и Telegram для заказа мебели в аренду в Москве. ${site.hours}.`,
+      description: `Телефон и Telegram для заказа мебели в аренду в Москве. ${site.hours}.`,
       body: block(ctx, 'components/contacts/content', '/contacts/'),
     }),
   };

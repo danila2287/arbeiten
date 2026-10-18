@@ -37,9 +37,9 @@
 
   &__tabs {
     display: flex;
+    flex-wrap: wrap;
     gap: 4px;
-    overflow-x: auto;
-    scrollbar-width: none;
+    justify-content: center;
   }
 
   &__tab {

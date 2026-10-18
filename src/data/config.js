@@ -14,16 +14,15 @@ export const site = {
   metrikaId: '', // номер счётчика Яндекс.Метрики, например '98765432'
 
   city: 'Москва',
-  phone: '+7 (900) 000-00-00',
-  phoneRaw: '+79000000000',
-  whatsapp: '79000000000', // номер без +, для ссылки wa.me
-  telegram: 'your_telegram', // ник без @
-  email: 'hello@example.ru',
-  avito: 'https://www.avito.ru/', // ссылка на ваш профиль Авито
+  phone: '+7 (902) 882-65-20',
+  phoneRaw: '+79028826520',
+  telegram: 'Danykik', // ник без @
+  email: 'kikeevd25@mail.ru',
+  avito: 'https://www.avito.ru/brands/5465a5de2d430b217d9ea2c32fc16b6f?src=sharing', // ссылка на ваш профиль Авито
   hours: 'Ежедневно, 9:00–21:00',
 
   minOrder: 3000, // минимальная сумма заказа, ₽
-  deliveryInsideMkad: 2500, // доставка в пределах МКАД, ₽
+  deliveryInsideMkad: 3500, // доставка в пределах МКАД, ₽
   deliveryPerKm: 50, // за МКАД, ₽ за км
   assemblyPercent: 10, // монтаж/демонтаж, % от суммы аренды
 };
