@@ -1,5 +1,6 @@
 // Простые линейные иллюстрации вместо фото. Когда снимете свою мебель,
-// добавьте товару поле image — productImage покажет фото вместо рисунка.
+// добавьте товару поле images (или image для одного фото) — productImage
+// покажет первое фото вместо рисунка.
 // Файл используют и генератор страниц, и браузер, поэтому здесь нет обращения к DOM.
 import { esc } from '../lib/format.js';
 
@@ -81,10 +82,18 @@ export function art(key, tone = 'paper', label = '') {
     fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
 }
 
+// Все фото товара: images: ['/images/a.jpg', '/images/b.jpg'] или image: '/images/a.jpg'
+export function photosOf(p) {
+  if (Array.isArray(p.images) && p.images.length) return p.images;
+  return p.image ? [p.image] : [];
+}
+
+// Первое фото товара (или иллюстрация, если фото нет).
 // link — функция из config.js, добавляет base к адресу картинки.
 export function productImage(p, link = (x) => x) {
-  if (p.image) {
-    return `<img class="art art--photo" src="${link(p.image)}" alt="${esc(p.name)}" width="500" height="400" loading="lazy">`;
+  const [first] = photosOf(p);
+  if (first) {
+    return `<img class="art art--photo" src="${link(first)}" alt="${esc(p.name)}" width="500" height="400" loading="lazy">`;
   }
   return art(p.art, p.tone, p.name);
 }

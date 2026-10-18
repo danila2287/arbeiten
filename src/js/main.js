@@ -5,10 +5,12 @@ import { useCartCount } from './components/cart-count.js';
 import { useKits } from './components/kits.js';
 import { useCatalogFilter } from './components/catalog-filter.js';
 import { useBuy } from './components/buy.js';
+import { useGallery } from './components/gallery.js';
 import { useCartPage } from './components/cart-page.js';
 
 useCartCount();
 useKits();
 useCatalogFilter();
 useBuy();
+useGallery();
 useCartPage();

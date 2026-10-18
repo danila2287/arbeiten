@@ -1,0 +1,100 @@
+@use '../../mixins' as *;
+
+// Галерея фото на странице товара
+.gallery {
+  &__viewport {
+    position: relative;
+  }
+
+  &__track {
+    display: flex;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--green);
+    cursor: pointer;
+    background: rgb(255 255 255 / 90%);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.15s;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0;
+    }
+
+    &--prev {
+      left: 12px;
+    }
+
+    &--next {
+      right: 12px;
+    }
+
+    // На телефоне листают пальцем — стрелки только мешают
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__thumbs {
+    display: flex;
+    gap: 8px;
+    padding: 2px;
+    margin-top: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  &__thumb {
+    flex: none;
+    width: 80px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &[aria-current='true'] {
+      border-color: var(--green);
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+    }
+  }
+}

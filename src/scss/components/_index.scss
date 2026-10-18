@@ -20,6 +20,7 @@
 // Каталог и товар
 @use 'catalog/catalog';
 @use 'catalog/product';
+@use 'catalog/gallery';
 
 // Заявка
 @use 'cart/order';

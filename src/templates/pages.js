@@ -1,7 +1,7 @@
 // Страницы сайта. Каждая функция возвращает { path, html }.
 // Статичные блоки (шаги, доставка, контакты) лежат в src/html/components,
 // а здесь собирается то, что зависит от каталога.
-import { art, productImage } from '../js/shared/art.js';
+import { art, productImage, photosOf } from '../js/shared/art.js';
 import { esc, rub, pieces } from '../js/lib/format.js';
 import { stepperHtml } from '../js/components/stepper.js';
 import { partial } from './render.js';
@@ -252,11 +252,40 @@ export const category = (ctx, cat) => catalogPage(ctx, cat);
 
 /* ---------- Товар ---------- */
 
+// Галерея для товара с несколькими фото: лента со свайпом, стрелки и миниатюры.
+// Без JavaScript лента всё равно листается свайпом и прокруткой.
+function gallery(p, photos, link) {
+  const alt = (i) => esc(`${p.name} — фото ${i + 1} из ${photos.length}`);
+  return `<div class="gallery" data-gallery>
+          <div class="gallery__viewport">
+            <div class="gallery__track" data-gallery-track tabindex="0" role="region" aria-label="Фотографии товара">
+              ${photos
+                .map(
+                  (src, i) =>
+                    `<img class="gallery__slide art art--photo" src="${link(src)}" alt="${alt(i)}" width="500" height="400"${i ? ' loading="lazy"' : ''}>`,
+                )
+                .join('\n              ')}
+            </div>
+            <button class="gallery__arrow gallery__arrow--prev" type="button" data-gallery-prev aria-label="Предыдущее фото" hidden>‹</button>
+            <button class="gallery__arrow gallery__arrow--next" type="button" data-gallery-next aria-label="Следующее фото" hidden>›</button>
+          </div>
+          <div class="gallery__thumbs">
+            ${photos
+              .map(
+                (src, i) =>
+                  `<button class="gallery__thumb" type="button" data-gallery-thumb="${i}" aria-label="Показать фото ${i + 1}"${i ? '' : ' aria-current="true"'}><img src="${link(src)}" alt="" width="80" height="64" loading="lazy"></button>`,
+              )
+              .join('\n            ')}
+          </div>
+        </div>`;
+}
+
 export function item(ctx, p) {
   const { site, categories, products, link } = ctx;
   const cat = categories.find((c) => c.id === p.cat);
   const related = products.filter((x) => x.cat === p.cat && x.id !== p.id).slice(0, 4);
   const path = itemPath(p);
+  const photos = photosOf(p);
   const cr = crumbs(ctx, [
     ['Каталог', '/catalog/'],
     [cat.name, catPath(cat)],
@@ -268,7 +297,7 @@ export function item(ctx, p) {
   <div class="container">
     ${cr.html}
     <div class="product">
-      <div class="product__img">${productImage(p, link)}</div>
+      <div class="product__img">${photos.length > 1 ? gallery(p, photos, link) : productImage(p, link)}</div>
       <div class="product__info">
         <h1 class="page-title product__title">${esc(p.name)} — аренда</h1>
         <p class="product__price">${rub(p.price)} <span class="product__unit">за сутки</span></p>
@@ -308,7 +337,7 @@ export function item(ctx, p) {
     name: p.name,
     description: p.desc,
     category: cat.name,
-    ...(p.image ? { image: site.url + p.image } : {}),
+    ...(photos.length ? { image: photos.map((src) => site.url + src) } : {}),
     offers: {
       '@type': 'Offer',
       price: p.price,
