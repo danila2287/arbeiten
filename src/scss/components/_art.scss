@@ -36,11 +36,9 @@
     background: var(--green);
   }
 
-  // Настоящее фото товара — показываем целиком, не обрезая
+  // Настоящее фото товара
   &--photo {
-    padding: 4%;
-    object-fit: contain;
-    object-position: center;
+    padding: 0;
     background: #f6f8f5;
   }
 }
