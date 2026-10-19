@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { esc, rub } from '../js/lib/format.js';
 import { productImage } from '../js/shared/art.js';
+import { stepperHtml } from '../js/components/stepper.js';
 import { partial } from './render.js';
 
 export const itemPath = (p) => `/item/${p.id}/`;
@@ -39,7 +40,10 @@ export function productCard(p, link) {
         <h3 class="pcard__name"><a href="${href}">${esc(p.name)}</a></h3>
         <p class="pcard__price">${rub(p.price)} <span class="pcard__unit">/ сутки</span></p>
         <p class="pcard__stock">В наличии ${p.stock} шт.</p>
-        <button class="btn btn--small pcard__btn" data-add="${p.id}" type="button">В заявку</button>
+        <div class="pcard__add" data-add-box="${p.id}">
+          <button class="btn btn--small pcard__btn" data-add="${p.id}" type="button">В заявку</button>
+          ${stepperHtml(p.id, 0, p.stock, `Количество: ${p.name}`)}
+        </div>
       </article>`;
 }
 

@@ -71,12 +71,36 @@
     color: var(--muted);
   }
 
-  &__btn {
+  &__add {
     align-self: flex-start;
     margin-top: auto;
 
+    .stepper {
+      display: none;
+    }
+
+    &.is-added {
+      .pcard__btn {
+        display: none;
+      }
+
+      .stepper {
+        display: inline-flex;
+      }
+    }
+
+    // На телефоне — только кнопка с повторным нажатием, без стрелочек
     @include mobile {
       align-self: stretch;
+
+      .pcard__btn {
+        display: block !important;
+        width: 100%;
+      }
+
+      .stepper {
+        display: none !important;
+      }
     }
   }
 }
