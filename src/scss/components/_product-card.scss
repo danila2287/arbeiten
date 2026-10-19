@@ -88,19 +88,5 @@
         display: inline-flex;
       }
     }
-
-    // На телефоне — только кнопка с повторным нажатием, без стрелочек
-    @include mobile {
-      align-self: stretch;
-
-      .pcard__btn {
-        display: block !important;
-        width: 100%;
-      }
-
-      .stepper {
-        display: none !important;
-      }
-    }
   }
 }

@@ -18,15 +18,14 @@ function syncAddButtons() {
     const btn = box.querySelector('[data-add]');
     box.classList.toggle('is-added', q > 0);
     btn.classList.toggle('is-added', q > 0);
-    btn.textContent = q ? `В заявке: ${q}` : 'В заявку';
+    btn.textContent = q ? `${q} шт.` : 'В заявку';
     const input = box.querySelector('.stepper__input');
     if (input && document.activeElement !== input) input.value = q;
   });
 }
 
 export function useCartCount() {
-  // Первое нажатие «В заявку» — дальше на десктопе количество меняют
-  // стрелочки степпера, на телефоне (их нет) — повторное нажатие.
+  // Первое нажатие «В заявку» — дальше количество меняют стрелочки степпера.
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-add]');
     if (!btn) return;
